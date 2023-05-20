@@ -1,0 +1,29 @@
+{
+  "name": "brainbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhiamber/brainbackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhiamber/brainbackend/issues"
+  },
+  "homepage": "https://github.com/abhiamber/brainbackend#readme",
+  "dependencies": {
+    "argon2": "^0.30.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.0",
+    "node-fetch": "^3.3.1"
+  }
+}
