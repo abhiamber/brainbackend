@@ -1,21 +1,40 @@
+let express = require("express");
+let cors = require("cors");
+let axios = require("axios");
 require("dotenv").config();
-const connect = require("./config/db");
-const express = require("express");
-const PORT = process.env.PORT || 8080;
-const cors = require("cors");
+let apiId = process.env.apiId;
 
-const app = express();
+let getWeather = async (location) => {
+  //   console.log(apiId, "nnnnnnnnnnn", location);
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiId}&units=metric`;
+
+  let { data } = await axios.get(url);
+
+  try {
+    // let data = await response.json();
+    return data;
+  } catch (err) {
+    return err;
+  }
+};
+
+let app = express();
 app.use(cors());
-app.use(express.json());
 
-app.get("/", (req, res) => {
-  return res.send("working fine................");
+app.get("/", async (req, res) => {
+  let { city } = req.query;
+  //   console.log(city);
+  try {
+    let data = await getWeather(city);
+
+    // console.log(data);
+    res.send(data);
+  } catch (e) {
+    // console.log(e.message);
+    res.send({ status: "NOTOK", data: e.message });
+  }
 });
-let prodRoute = require("./routes/prod.routes");
 
-app.use("/prod", prodRoute);
-
-app.listen(PORT, async (req, res) => {
-  await connect();
-  console.log("working");
+app.listen(8080, () => {
+  console.log("working................");
 });
