@@ -19,6 +19,7 @@
   "homepage": "https://github.com/abhiamber/brainbackend#readme",
   "dependencies": {
     "argon2": "^0.30.3",
+    "axios": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
